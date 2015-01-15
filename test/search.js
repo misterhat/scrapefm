@@ -6,23 +6,12 @@ tap('searching', function (test) {
     test.plan(3);
 
     scrapefm.search('ty seg', function (err, results) {
-        var i, result, populated;
-
         test.notOk(err, 'no errors');
         test.ok(results.length, 'search results found');
 
-        populated = true;
-
-        for (i = 0; i < results.length; i += 1) {
-            result = results[i];
-
-            if (!result.type && !result[result.type]) {
-                populated = false;
-                break;
-            }
-        }
-
-        test.ok(populated, 'populated results');
+        test.notOk(results.filter(function (result) {
+            return !result.type && !result[result.type];
+        }).length, 'populated results');
     });
 });
 

@@ -10,8 +10,6 @@ tap('album', function (test) {
         album: 'help!',
         artist: 'the beatles'
     }, function (err, album) {
-        var populated, i, track;
-
         test.notOk(err, 'no errors');
         test.ok(album, 'album found');
         test.ok(/help/i.test(album.album), 'valid title');

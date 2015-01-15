@@ -124,7 +124,7 @@ function search(terms, options, done) {
     });
 }
 
-function artist(terms, options, done) {
+function findArtist(terms, options, done) {
     var url = options.host + '/music/' + terms;
 
     needle.get(url, options.needle, function (err, res, body) {
@@ -189,11 +189,11 @@ function artist(terms, options, done) {
     });
 }
 
-function album(terms, options, done) {
+function findAlbum(terms, options, done) {
     var url;
 
     if (typeof terms === 'string') {
-        return findFirst(terms, 'album', album, options, done);
+        return findFirst(terms, 'album', findAlbum, options, done);
     }
 
     url = options.host + '/music/' + terms.artist + '/' + terms.album
@@ -301,6 +301,6 @@ function findTrack(terms, options, done) {
 }
 
 module.exports.search = makeWrap(search);
-module.exports.artist = makeWrap(artist);
-module.exports.album = makeWrap(album);
+module.exports.artist = makeWrap(findArtist);
+module.exports.album = makeWrap(findAlbum);
 module.exports.track = makeWrap(findTrack);

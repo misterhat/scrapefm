@@ -1,20 +1,10 @@
-var scrapefm = require('./');
+const ScrapeFM = require('./');
+const scrapefm = new ScrapeFM();
 
-scrapefm.search('ty segall', function (err, results) {
-    if (!err) {
-        results.forEach(function (result) {
-            console.log(result.type + ': ' + result[result.type]);
-        });
+scrapefm.getTrack('the offspring', 'bad habit', (err, res) => {
+    if (err) {
+        return console.error(err);
     }
-});
 
-scrapefm.album('melted ty', function (err, album) {
-    if (!err) {
-        console.log(album.album + ' by ' + album.artist);
-
-        album.tracks.forEach(function (track, i) {
-            i++;
-            console.log(i + '. ' + track.track + ' - ' + track.duration + 's');
-        });
-    }
+    console.log(res);
 });

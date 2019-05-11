@@ -1,8 +1,15 @@
 {
   "name": "scrapefm",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "A lightweight last.fm scraper (no API key).",
   "main": "index.js",
+  "scripts": {
+    "test": "node test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/misterhat/scrapefm.git"
+  },
   "keywords": [
     "last.fm",
     "lastfm",
@@ -12,27 +19,15 @@
     "album",
     "art"
   ],
-  "author": "Mister Hat <misterhat144@gmail.com>",
-  "license": "MIT",
-  "dependencies": {
-    "cheerio": "^0.18.0",
-    "needle": "^0.7.10"
-  },
-  "devDependencies": {
-    "tap": "^0.4.13"
-  },
-  "scripts": {
-    "test": "tap test/*.js"
-  },
-  "directories": {
-    "test": "test"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/misterhat/scrapefm.git"
-  },
+  "author": "Zorian Medwid <misterhat144@gmail.com>",
+  "license": "LGPL-3.0+",
   "bugs": {
     "url": "https://github.com/misterhat/scrapefm/issues"
   },
-  "homepage": "https://github.com/misterhat/scrapefm"
+  "homepage": "https://github.com/misterhat/scrapefm#readme",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
+    "got": "^9.6.0",
+    "random-mua": "^0.4.1"
+  }
 }

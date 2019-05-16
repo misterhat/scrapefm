@@ -38,7 +38,7 @@ class ScrapeFM {
 
     // set a new user agent
     reloadAgent() {
-        this.headers.agent = randomMua();
+        this.headers['user-agent'] = randomMua();
     }
 
     parseScrobblesListeners($) {
